@@ -11,7 +11,7 @@
 		{
 			"name": "API Requests",
 			"icon": "rectangle-terminal",
-			"url": "/api"
+			"url": "/endpoint"
 		}
 	],
 	"navigation": [
@@ -24,35 +24,35 @@
 		{
 			"group": "API",
 			"pages": [
-				"api/authentication"
+				"endpoint/authentication"
 			]
 		},
 		{
 			"group": "Games Endpoints",
 			"pages": [
-				"api/games/id",
-				"api/games/title"
+				"endpoint/games/id",
+				"endpoint/games/title"
 			]
 		},
 		{
 			"group": "Books Endpoints",
 			"pages": [
-				"api/books/id",
-				"api/books/title"
+				"endpoint/books/id",
+				"endpoint/books/title"
 			]
 		},
 		{
 			"group": "Movies Endpoints",
 			"pages": [
-				"api/movies/id",
-				"api/movies/title"
+				"endpoint/movies/id",
+				"endpoint/movies/title"
 			]
 		},
 		{
 			"group": "TV Shows Endpoints",
 			"pages": [
-				"api/tvshows/id",
-				"api/tvshows/title"
+				"endpoint/tvshows/id",
+				"endpoint/tvshows/title"
 			]
 		}
 	]
