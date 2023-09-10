@@ -33,27 +33,6 @@
 				"endpoint/games/id",
 				"endpoint/games/title"
 			]
-		},
-		{
-			"group": "Books Endpoints",
-			"pages": [
-				"endpoint/books/id",
-				"endpoint/books/title"
-			]
-		},
-		{
-			"group": "Movies Endpoints",
-			"pages": [
-				"endpoint/movies/id",
-				"endpoint/movies/title"
-			]
-		},
-		{
-			"group": "TV Shows Endpoints",
-			"pages": [
-				"endpoint/tvshows/id",
-				"endpoint/tvshows/title"
-			]
 		}
 	]
 }

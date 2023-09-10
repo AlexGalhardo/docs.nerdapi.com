@@ -1,74 +1,271 @@
 ---
 title: "GET GAME BY TITLE"
-api: "GET https://api.nerdapi.com/games/title/:title"
-description: "This endpoint returns all games with the same or similar title as the search."
+api: "GET https://api.nerdapi.com/games/title/:game_title"
+description: "This endpoint returns array of games according to the searched title."
 ---
 
-### Body
+### Headers
 
-<ParamField body="id" type="string">
-  ID do jogo.
-</ParamField>
-
-<ParamField body="title" type="string">
-  Título do Jogo
+<ParamField body="Authorization Bearer" type="string">
+	Send in each request your API KEY in the request header
 </ParamField>
 
 ### Response
 
 <ResponseField name="success" type="boolean">
-  Returna true se requisição foi bem sucedida, false caso contrário.
+	Return true if response was successfully, or false otherwise.
 </ResponseField>
 
 <ResponseField name="message" type="boolean">
-  Se retornar success false, retorna breve resumo do problema.
+  	Return message with the error description.
 </ResponseField>
 
-<ResponseField name="errors" type="boolean">
-  Se retornar success false, retorna objeto com os erros encontrados.
-</ResponseField>
+<ResponseField name="data" type="array">
 
-<ResponseField name="game" type="object">
-
-Objeto completo com todas as informações do jogo.
+	Return data with array of games objects
 
 <Expandable title="Toggle object">
 
 <ResponseField name="id" type="string">
-  ID do jogo.
+  	Game ID
 </ResponseField>
 
 <ResponseField name="title" type="string">
-  Título do Jogo
+  	Game title
 </ResponseField>
 
 <ResponseField name="cover_image" type="string">
-  URL da imagem de capa do jogo.
+  	Game cover image.
 </ResponseField>
 
-<ResponseField name="release_year" type="number">
-  Número inteiro com ano de lançamento.
+<ResponseField name="summary" type="number">
+	Game summary.
 </ResponseField>
 
-<ResponseField name="metacritic_score" type="number">
-  Número inteiro com nota do metacritic.
+<ResponseField name="release" type="object">
+
+	Game release date
+
+<Expandable title="Toggle object">
+
+<ResponseField name="year" type="number">
+  	Year of the game release.
 </ResponseField>
 
-<ResponseField name="platforms" type="array">
-  Plataforms disponíveis para jogar esse jogo.
+<ResponseField name="date" type="string">
+  	Date of the game release.
 </ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="igdb" type="object">
+
+	Game igdb reference
+
+<Expandable title="Toggle object">
+
+<ResponseField name="url" type="number">
+  	Url of the game at IGDB.com
+</ResponseField>
+
+<ResponseField name="rating" type="string">
+  	Game rating at IGDB.com
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="metacritic" type="object">
+
+	Game metacritic reference
+
+<Expandable title="Toggle object">
+
+<ResponseField name="url" type="number">
+  	Url of the game at metacritic.com
+</ResponseField>
+
+<ResponseField name="rating" type="string">
+  	Game rating at metacritic.com
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+
+<ResponseField name="where_to_buy" type="array">
+
+	Game references where to buy
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Id where to buy
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Name where to buy
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  	Url where to buy
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+
+
+<ResponseField name="developer" type="array">
+
+	Game developer
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Game developer id
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Game developer name
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+<ResponseField name="publisher" type="array">
+
+	Game publisher
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Game publisher id
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Game publisher name
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+<ResponseField name="platforms_available" type="array">
+
+	Game platforms available to play
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Game platforms available id
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Game platforms available name
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
 
 <ResponseField name="genres" type="array">
-  Tipos de genêros que esse jogo se adequa.
+
+	Game genres
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Game genre id
 </ResponseField>
 
-<ResponseField name="developer" type="object">
-  Desenvolvedora desse jogo.
+<ResponseField name="name" type="number">
+  	Game genre name
 </ResponseField>
 
-<ResponseField name="publisher" type="object">
-  Publicadora desse jogo.
+</Expandable>
+
 </ResponseField>
+
+
+
+
+<ResponseField name="how_long_to_beat" type="object">
+
+	Game genres
+
+<Expandable title="Toggle object">
+
+<ResponseField name="url" type="number">
+  	Game howlongotbeat.com url
+</ResponseField>
+
+<ResponseField name="main_story" type="object">
+  	Game genre name
+
+	<Expandable title="Toggle object">
+
+		<ResponseField name="average" type="string">
+			Game main story average time to beat
+		</ResponseField>
+
+	</Expandable>
+
+</ResponseField>
+
+<ResponseField name="completionist" type="object">
+  	Game genre name
+
+	<Expandable title="Toggle object">
+
+		<ResponseField name="average" type="string">
+			Game completionist average time to beat
+		</ResponseField>
+
+	</Expandable>
+	
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+
+<ResponseField name="created_at" type="string">
+  	Date when game was created at nerdapi.com databse.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  	Date when game was updated at nerdapi.com databse.
+</ResponseField>
+
+<ResponseField name="created_at_pt_br" type="string">
+  	Date when game was created at nerdapi.com databse in Brazil format.
+</ResponseField>
+
+<ResponseField name="updated_at_pt_br" type="string">
+  	Date when game was updated at nerdapi.com databse in Brazil format.
+</ResponseField>
+
 
 </Expandable>
 
@@ -76,28 +273,22 @@ Objeto completo com todas as informações do jogo.
 
 <RequestExample>
 
-```bash Requisição usando cURL
-curl --location --request GET "https://api.nerdapi.com/game" \
---header "Content-Type: application/json" \
---header "Authorization: Bearer <token>" \
---data-raw '{
-    "id": "cf9d71d6-4692-4052-aee6-793b92290cb6"
-}'
+```javascript Using Javascript
+fetch(`https://api.nerdapi.com/games/title/godofwar`, {
+		method: "GET",
+		headers: { 
+			"Content-Type": "application/json",
+			"Authorization": "Bearer <YOUR_API_KEY>"
+		}
+ 	})
+ 	.then(res => res.json())
+ 	.then(json => console.log(json));
 ```
 
-```javascript Requisição usando JS
-fetch(`https://api.nerdapi.com/game`, {
-    method: "GET",
-    headers: { 
-      "Content-Type": "application/json",
-      "Authorization": "Bearer <token>"
-    },
-    body: JSON.stringify({
-      "title": "God Of War Ragnarok",
-    })
- })
- .then(res => res.json())
- .then(json => console.log(json));
+```bash Using cURL
+curl --location --request GET "https://api.nerdapi.com/games/title/godofwar" \
+--header "Content-Type: application/json" \
+--header "Authorization: Bearer <YOUR_API_KEY>" \
 ```
 
 </RequestExample>
@@ -106,53 +297,154 @@ fetch(`https://api.nerdapi.com/game`, {
 
 ```json Response Sucessfull
 {
-  "success": true,
-  "game": {
-    "id": "cf9d71d6-4692-4052-aee6-793b92290cb6",
-    "title": "God Of War Ragnarok",
-    "cover_image": "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
-    "release_year": 2022,
-    "metacritic_score": 95,
-    "platforms": [
-      {
-        "id": "f67f91a9-1072-4aa7-a839-c9155e215c4b",
-        "name": "PlayStation 5",
-        "acronym": "PS5",
-      },
-      {
-				"id": "f67f91a9-1072-4aa7-a839-c9155e215c43",
-				"name": "PlayStation 4",
-				"acronym": "PS4",
-			}
-    ],
-    "genres": [
-      {
-        "id": "f67f91a9-1072-4aa7-a839-c9155e215c4b",
-        "name": "Action",
-      }
-    ],
-    "developer": {
-        "id": "f67f91a9-1072-4aa7-a839-c9155e215c4b",
-        "name": "Santa Mônica Studio",
-    },
-    "publisher": {
-        "id": "f67f91a9-1072-4aa7-a839-c9155e215c4b",
-        "name": "Sony Entertainment",
-    },
-    "last_update_at_BR": "23-09-2023 15:32:32",
-    "last_update_at": "Sun Aug 06 2023 16:47:15 GMT-0300 (Brasilia Standard Time)",
-  }
+	"success": true,
+	"data": [
+		{
+			"id": "4b1d76ad-5cea-4115-ae14-1107eec9d92c",
+			"title": "God of War Ragnarök",
+			"cover_image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.jpg",
+			"summary": "God of War: Ragnarök is the ninth installment in the God of War series and the sequel to 2018's God of War. Continuing with the Norse mythology theme, the game is set in ancient Norway and feature series protagonists Kratos, the former Greek God of War, and his young son Atreus. The game is expected to kick off the events of Ragnarök, where Kratos and Atreus must journey to each of the Nine Realms in search of answers as they prepare for the prophesied battle that will end the world.",
+			"release": {
+				"year": 2022,
+				"date": "2022-11-09T00:00:00.000Z"
+			},
+			"igdb": {
+				"url": "https://www.igdb.com/games/god-of-war-ragnarok",
+				"rating": 94
+			},
+			"metacritic": {
+				"url": "https://www.igdb.com/games/god-of-war-ragnarok",
+				"rating": 94
+			},
+			"where_to_buy": [
+				{
+					"id": "871a75ab-9d85-44bc-a714-bc1d1cdee708",
+					"name": "Buy On Amazon",
+					"url": "https://www.amazon.com/"
+				},
+				{
+					"id": "2fb0cd10-69b4-42bb-b5cb-6393737798b0",
+					"name": "Buy On Steam",
+					"url": "https://store.steampowered.com/"
+				}
+			],
+			"developer": {
+				"id": "18697fca-d60a-4c73-9d99-f62b43f256f7",
+				"name": "SIE Santa Monica Studio"
+			},
+			"publisher": {
+				"id": "2b3ae505-5311-400b-8737-0bdf27e7ee2b",
+				"name": "Sony Interactive Entertainment"
+			},
+			"platforms_available": [
+				{
+					"id": "a44cbf1d-9179-4224-a3f8-6b80179e2040",
+					"name": "PlayStation 4"
+				},
+				{
+					"id": "77f60f24-4366-4535-8432-c748bda63bb9",
+					"name": "PlayStation 5"
+				}
+			],
+			"genres": [
+				{
+					"id": "ca23c066-e0aa-421e-8de1-09baed68539f",
+					"name": "Hack and slash/Beat 'em up"
+				},
+				{
+					"id": "1c946a3f-6c62-4c22-8742-e05487330fbe",
+					"name": "Adventure"
+				}
+			],
+			"how_long_to_beat": {
+				"url": "https://howlongtobeat.com/",
+				"main_story": {
+					"average": "16h 44m"
+				},
+				"completionist": {
+					"average": "53h 43m"
+				}
+			},
+			"created_at": "Thu Sep 07 2023 18:40:33 GMT-0300 (Brasilia Standard Time)",
+			"updated_at": null,
+			"created_at_pt_br": "07/09/2023 18:40:33",
+			"updated_at_pt_br": null
+		},
+		{
+			"id": "3b761287-ad28-4692-ac89-a2db904fa981",
+			"title": "God of War: Ascension",
+			"cover_image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3die.jpg",
+			"summary": "Vengeance is born in the fires of betrayal in this prequel to the best-selling God of War franchise. Six months have passed since Kratos stood over the bodies of his wife and child, his hands stained with their blood - tricked by Ares into murdering the only people he ever loved. Swearing to avenge them, Kratos broke the blood oath that bound him to Ares, but oaths to Olympus are not so easily broken... Sentenced to an eternity chained within a prison for the living damned, Kratos battles insanity at the hands of the Furies. He will be tested as he seeks freedom, redemption for his sins, and the clarity to avenge his family.",
+			"release": {
+				"year": 2013,
+				"date": "2013-03-12T00:00:00.000Z"
+			},
+			"igdb": {
+				"url": "https://www.igdb.com/games/god-of-war-ascension",
+				"rating": 74
+			},
+			"metacritic": {
+				"url": "https://www.igdb.com/games/god-of-war-ascension",
+				"rating": 74
+			},
+			"where_to_buy": [
+				{
+					"id": "3fd8fd52-935c-46f3-8bd1-9c511581bfed",
+					"name": "Buy On Amazon",
+					"url": "https://www.amazon.com/"
+				},
+				{
+					"id": "303a23d8-e891-4d16-a85d-fa7cad13a50d",
+					"name": "Buy On Steam",
+					"url": "https://store.steampowered.com/"
+				}
+			],
+			"developer": {
+				"id": "2ff45692-9716-49e6-8812-ffe2f5b2cf9e",
+				"name": "SCE Santa Monica Studio"
+			},
+			"publisher": {
+				"id": "344cd478-89aa-4e8c-a217-d08b34c6630d",
+				"name": "Sony Computer Entertainment"
+			},
+			"platforms_available": [
+				{
+					"id": "ee965978-3aa6-4cbf-adaa-5def520f1d65",
+					"name": "PlayStation 3"
+				}
+			],
+			"genres": [
+				{
+					"id": "c0d473cb-8cd7-42e4-85cf-b93670052f04",
+					"name": "Hack and slash/Beat 'em up"
+				},
+				{
+					"id": "fa9e3e8e-0a0f-4a07-a8a3-e8745a16b66a",
+					"name": "Adventure"
+				}
+			],
+			"how_long_to_beat": {
+				"url": "https://howlongtobeat.com/",
+				"main_story": {
+					"average": "15h 36m"
+				},
+				"completionist": {
+					"average": "62h 16m"
+				}
+			},
+			"created_at": "Thu Sep 07 2023 18:41:32 GMT-0300 (Brasilia Standard Time)",
+			"updated_at": null,
+			"created_at_pt_br": "07/09/2023 18:41:32",
+			"updated_at_pt_br": null
+		}
+	]
 }
 ```
 
 ```json Response Fail
 {
   "success": false,
-  "message": "Jogo não encontrado. Verifique se você enviou id e/ou title corretamente no corpo da requisição.",
-  "errors": {
-    "id": "not found",
-    "title": "not found"
-  }
+  "message": "Games search title 'godofwar' not found",
 }
 ```
 
