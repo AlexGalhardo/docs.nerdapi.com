@@ -1,0 +1,401 @@
+---
+title: "GET RANDOM GAME"
+api: "GET https://api.nerdapi.com/random"
+description: "This endpoint returns a random game."
+---
+
+### Headers
+
+<ParamField body="Authorization Bearer" type="string">
+	Send in each request your API KEY in the request header
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="boolean">
+	Return true if response was successfully, or false otherwise.
+</ResponseField>
+
+<ResponseField name="message" type="boolean">
+  	Return message with the error description.
+</ResponseField>
+
+<ResponseField name="data" type="object">
+
+	Return data with the game object
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="string">
+  	Game ID
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  	Game title
+</ResponseField>
+
+<ResponseField name="cover_image" type="string">
+  	Game cover image.
+</ResponseField>
+
+<ResponseField name="summary" type="number">
+	Game summary.
+</ResponseField>
+
+<ResponseField name="release" type="object">
+
+	Game release date
+
+<Expandable title="Toggle object">
+
+<ResponseField name="year" type="number">
+  	Year of the game release.
+</ResponseField>
+
+<ResponseField name="date" type="string">
+  	Date of the game release.
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="igdb" type="object">
+
+	Game igdb reference
+
+<Expandable title="Toggle object">
+
+<ResponseField name="url" type="number">
+  	Url of the game at IGDB.com
+</ResponseField>
+
+<ResponseField name="rating" type="string">
+  	Game rating at IGDB.com
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="metacritic" type="object">
+
+	Game metacritic reference
+
+<Expandable title="Toggle object">
+
+<ResponseField name="url" type="number">
+  	Url of the game at metacritic.com
+</ResponseField>
+
+<ResponseField name="rating" type="string">
+  	Game rating at metacritic.com
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+
+<ResponseField name="where_to_buy" type="array">
+
+	Game references where to buy
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Id where to buy
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Name where to buy
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  	Url where to buy
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+
+
+<ResponseField name="developer" type="array">
+
+	Game developer
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Game developer id
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Game developer name
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+<ResponseField name="publisher" type="array">
+
+	Game publisher
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Game publisher id
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Game publisher name
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+<ResponseField name="platforms_available" type="array">
+
+	Game platforms available to play
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Game platforms available id
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Game platforms available name
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+
+<ResponseField name="genres" type="array">
+
+	Game genres
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="number">
+  	Game genre id
+</ResponseField>
+
+<ResponseField name="name" type="number">
+  	Game genre name
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+
+<ResponseField name="how_long_to_beat" type="object">
+
+	Game genres
+
+<Expandable title="Toggle object">
+
+<ResponseField name="url" type="number">
+  	Game howlongotbeat.com url
+</ResponseField>
+
+<ResponseField name="main_story" type="object">
+  	Game genre name
+
+	<Expandable title="Toggle object">
+
+		<ResponseField name="average" type="string">
+			Game main story average time to beat
+		</ResponseField>
+
+	</Expandable>
+
+</ResponseField>
+
+<ResponseField name="completionist" type="object">
+  	Game genre name
+
+	<Expandable title="Toggle object">
+
+		<ResponseField name="average" type="string">
+			Game completionist average time to beat
+		</ResponseField>
+
+	</Expandable>
+	
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+
+
+<ResponseField name="created_at" type="string">
+  	Date when game was created at nerdapi.com databse.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  	Date when game was updated at nerdapi.com databse.
+</ResponseField>
+
+<ResponseField name="created_at_pt_br" type="string">
+  	Date when game was created at nerdapi.com databse in Brazil format.
+</ResponseField>
+
+<ResponseField name="updated_at_pt_br" type="string">
+  	Date when game was updated at nerdapi.com databse in Brazil format.
+</ResponseField>
+
+
+</Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```javascript Using Javascript
+fetch(`https://api.nerdapi.com/games/id/ffc6a795-09e0-4a3b-8da5-91279dca3b79`, {
+		method: "GET",
+		headers: { 
+			"Content-Type": "application/json",
+			"Authorization": "Bearer <YOUR_API_KEY>"
+		}
+ 	})
+ 	.then(res => res.json())
+ 	.then(json => console.log(json));
+```
+
+```bash Using cURL
+curl --location --request GET "https://api.nerdapi.com/games/id/ffc6a795-09e0-4a3b-8da5-91279dca3b79" \
+--header "Content-Type: application/json" \
+--header "Authorization: Bearer <YOUR_API_KEY>" \
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response Sucessfull
+{
+	"success": true,
+	"data": {
+		"id": "ffc6a795-09e0-4a3b-8da5-91279dca3b79",
+		"title": "Portal 2",
+		"cover_image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rs4.jpg",
+		"summary": "Sequel to the acclaimed Portal (2007), Portal 2 pits the protagonist of the original game, Chell, and her new robot friend, Wheatley, against more puzzles conceived by GLaDOS, an A.I. with the sole purpose of testing the Portal Gun's mechanics and taking revenge on Chell for the events of Portal. As a result of several interactions and revelations, Chell once again pushes to escape Aperture Science Labs.",
+		"release": {
+			"year": 2011,
+			"date": "2011-04-18T00:00:00.000Z"
+		},
+		"igdb": {
+			"url": "https://www.igdb.com/games/portal-2",
+			"rating": 92
+		},
+		"metacritic": {
+			"url": "https://www.igdb.com/games/portal-2",
+			"rating": 92
+		},
+		"where_to_buy": [
+			{
+				"id": "ffc6a795-09e0-4a3b-8da5-91279dca3b78",
+				"name": "Buy on Amazon",
+				"url": "https://www.amazon.com/",
+			}
+		],
+		"developer": {
+			"id": "28b89ca6-6c03-408a-b9fc-de08a9906f90",
+			"name": "Valve"
+		},
+		"publisher": {
+			"id": "912035af-0095-4784-b074-98beb28699a6",
+			"name": "Valve"
+		},
+		"platforms_available": [
+			{
+				"id": "0c37ecef-d0b6-459a-a337-05847371c627",
+				"name": "PC (Microsoft Windows)"
+			},
+			{
+				"id": "d34314fa-e44d-430e-864e-b8664b9db097",
+				"name": "Nintendo Switch"
+			},
+			{
+				"id": "41921460-94fb-430c-8b9f-5a94884627e3",
+				"name": "PlayStation 3"
+			},
+			{
+				"id": "5f1461c1-a465-4cbe-be56-b67bf0641115",
+				"name": "Mac"
+			},
+			{
+				"id": "9ad6ea5c-2f8e-4363-b240-14274807df60",
+				"name": "Linux"
+			},
+			{
+				"id": "0e794a78-b1e7-4960-87b8-8426ebd12d13",
+				"name": "Xbox 360"
+			}
+		],
+		"genres": [
+			{
+				"id": "b15819de-3047-4abc-b44a-213fc2e9bf61",
+				"name": "Shooter"
+			},
+			{
+				"id": "8e0f7710-31fa-49f9-83e7-1b11cd1f1354",
+				"name": "Platform"
+			},
+			{
+				"id": "bc22d17e-7cff-4c22-84f3-aa197851f160",
+				"name": "Puzzle"
+			},
+			{
+				"id": "53fe473e-a510-40d8-bfcf-53b38d7a9b87",
+				"name": "Adventure"
+			}
+		],
+		"how_long_to_beat": {
+			"url": "https://howlongtobeat.com/",
+			"main_story": {
+				"average": "25h 39m"
+			},
+			"completionist": {
+				"average": "70h 19m"
+			}
+		},
+		"created_at": "Thu Sep 07 2023 16:36:16 GMT-0300 (Brasilia Standard Time)",
+		"updated_at": null,
+		"created_at_pt_br": "07/09/2023 16:36:16",
+		"updated_at_pt_br": null
+	}
+}
+```
+
+```json Response Fail
+{
+  "success": false,
+  "message": "Something went wrong",
+}
+```
+
+</ResponseExample>

@@ -31,7 +31,8 @@
 			"group": "Games Endpoints",
 			"pages": [
 				"endpoint/games/id",
-				"endpoint/games/title"
+				"endpoint/games/title",
+				"endpoint/games/random"
 			]
 		}
 	]
