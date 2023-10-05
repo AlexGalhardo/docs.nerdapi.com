@@ -1,6 +1,6 @@
 ---
 title: "GET RANDOM GAME"
-api: "GET https://api.nerdapi.com/random"
+api: "GET https://api.nerdapi.com/games/random"
 description: "This endpoint returns a random game."
 ---
 
@@ -274,7 +274,7 @@ description: "This endpoint returns a random game."
 <RequestExample>
 
 ```javascript Using Javascript
-fetch(`https://api.nerdapi.com/games/id/ffc6a795-09e0-4a3b-8da5-91279dca3b79`, {
+fetch(`https://api.nerdapi.com/games/random`, {
 		method: "GET",
 		headers: { 
 			"Content-Type": "application/json",
@@ -286,7 +286,7 @@ fetch(`https://api.nerdapi.com/games/id/ffc6a795-09e0-4a3b-8da5-91279dca3b79`, {
 ```
 
 ```bash Using cURL
-curl --location --request GET "https://api.nerdapi.com/games/id/ffc6a795-09e0-4a3b-8da5-91279dca3b79" \
+curl --location --request GET "https://api.nerdapi.com/games/random" \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer <YOUR_API_KEY>" \
 ```

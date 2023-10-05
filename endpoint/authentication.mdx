@@ -10,7 +10,7 @@ description: "See how easy it is to get started with our endpoints!"
 - Endpoints use a unique 32-character API KEY for each Casual or PRO plan member to authenticate user requests, as in the example below:
 
 ```bash
-'Authorization': 'Bearer eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ'
+'Authorization': 'Bearer 11fa338538fe939b46b75461815263950ff2ce4446c1c503'
 ```
 
 - You can find your API KEY at: https://nerdapi.com/profile
@@ -38,14 +38,14 @@ fetch(`https://api.nerdapi.com/key`, {
 ```json Response Success
 {
   	"success": true,
-	"api_key": "Bearer eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ",
+	"api_key": "Bearer 11fa338538fe939b46b75461815263950ff2ce4446c1c503",
 }
 ```
 
 ```json Response Fail
 {
   	"success": false,
-  	"message": "Invalid authentication or user not has a subscription active"
+  	"message": "Header Authorization Bearer Token or API Key Expired Or Invalid"
 }
 ```
 
