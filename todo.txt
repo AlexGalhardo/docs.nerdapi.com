@@ -1,0 +1,32 @@
+## POST /key
+
+- You can also make a POST request authenticating yourself to get your API KEY:
+
+```javascript
+fetch(`https://api.nerdapi.com/key`, {
+		method: "POST",
+		headers: { 
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			"email": "test@gmail.com",
+			"password": "test123",
+		})
+	})
+	.then(res => res.json())
+	.then(json => console.log(json));
+```
+
+```json Response Success
+{
+  	"success": true,
+	"api_key": "Bearer 11fa338538fe939b46b75461815263950ff2ce4446c1c503",
+}
+```
+
+```json Response Fail
+{
+  	"success": false,
+  	"message": "Header Authorization Bearer Token or API Key Expired Or Invalid"
+}
+```

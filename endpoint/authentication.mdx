@@ -1,51 +1,16 @@
 ---
 title: "Authentication"
-description: "See how easy it is to get started with our endpoints!"
+description: "See how easy it is to get started with our API!"
 ---
 
 # Introduction
 
 - Our API is based on REST architecture with responses in JSON format.
 - The number of requests currently allowed: <b>up to 1 request per second.</b>
-- Endpoints use a unique 32-character API KEY for each Casual or PRO plan member to authenticate user requests, as in the example below:
+- Endpoints needs a unique 48-character API KEY per user http request, as in the example below:
 
 ```bash
 'Authorization': 'Bearer 11fa338538fe939b46b75461815263950ff2ce4446c1c503'
 ```
 
 - You can find your API KEY at: https://nerdapi.com/profile
-
-
-## POST /key
-
-- You can also make a POST request authenticating yourself to get your API KEY:
-
-```javascript
-fetch(`https://api.nerdapi.com/key`, {
-		method: "POST",
-		headers: { 
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-			"email": "test@gmail.com",
-			"password": "test123",
-		})
-	})
-	.then(res => res.json())
-	.then(json => console.log(json));
-```
-
-```json Response Success
-{
-  	"success": true,
-	"api_key": "Bearer 11fa338538fe939b46b75461815263950ff2ce4446c1c503",
-}
-```
-
-```json Response Fail
-{
-  	"success": false,
-  	"message": "Header Authorization Bearer Token or API Key Expired Or Invalid"
-}
-```
-
